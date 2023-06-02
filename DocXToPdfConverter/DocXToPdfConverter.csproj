@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0F9BA2DD-1936-4411-B148-EEB4C7BC0088}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DocXToPdfConverter</RootNamespace>
+    <AssemblyName>DocXToPdfConverter</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.10.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.10.0-beta0002\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.7.0.0\lib\net462\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.5.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DocXToPdfHandlers\ConvertWithLibreOffice.cs" />
+    <Compile Include="DocXToPdfHandlers\DocXHandler.cs" />
+    <Compile Include="DocXToPdfHandlers\HtmlHandler.cs" />
+    <Compile Include="DocXToPdfHandlers\ImageHandler.cs" />
+    <Compile Include="DocXToPdfHandlers\StreamHandler.cs" />
+    <Compile Include="OpenXmlPowerTools\ChartUpdater.cs" />
+    <Compile Include="OpenXmlPowerTools\ColorParser.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\ComparisonUnit.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\ComparisonUnitAtom.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\ComparisonUnitGroup.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\ComparisonUnitGroupType.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\ComparisonUnitWord.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\CorrelatedSequence.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\CorrelationStatus.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\PartSHA1HashAnnotation.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\WithHierarchicalGroupingKey.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\WmlComparer.Internal.Methods.ComparisonUnits.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\WmlComparer.Private.Fields.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\WmlComparer.Private.Methods.Hashing.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\WmlComparer.Private.Methods.Lcs.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\WmlComparer.Private.Methods.PreProcessMarkup.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\WmlComparer.Private.Methods.ProduceDocument.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\WmlComparer.Private.Methods.Util.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\WmlComparer.Private.NestedTypes.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\WmlComparer.Public.Methods.Compare.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\WmlComparer.Public.Methods.Consolidate.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\WmlComparer.Public.Methods.GetRevisions.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\WmlComparer.Public.NestedTypes.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\WmlComparerConsolidateSettings.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\WmlComparerExtensions.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\WmlComparerSettings.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\WmlComparerUtil.cs" />
+    <Compile Include="OpenXmlPowerTools\Comparer\WmlRevisedDocumentInfo.cs" />
+    <Compile Include="OpenXmlPowerTools\DocumentAssembler.cs" />
+    <Compile Include="OpenXmlPowerTools\DocumentBuilder.cs" />
+    <Compile Include="OpenXmlPowerTools\ExcelFormula.cs" />
+    <Compile Include="OpenXmlPowerTools\FieldRetriever.cs" />
+    <Compile Include="OpenXmlPowerTools\FormattingAssembler.cs" />
+    <Compile Include="OpenXmlPowerTools\GetListItemText_Default.cs" />
+    <Compile Include="OpenXmlPowerTools\GetListItemText_fr_FR.cs" />
+    <Compile Include="OpenXmlPowerTools\GetListItemText_ru_RU.cs" />
+    <Compile Include="OpenXmlPowerTools\GetListItemText_sv_SE.cs" />
+    <Compile Include="OpenXmlPowerTools\GetListItemText_tr_TR.cs" />
+    <Compile Include="OpenXmlPowerTools\GetListItemText_zh_CN.cs" />
+    <Compile Include="OpenXmlPowerTools\HtmlToWmlConverter.cs" />
+    <Compile Include="OpenXmlPowerTools\HtmlToWmlConverterCore.cs" />
+    <Compile Include="OpenXmlPowerTools\HtmlToWmlCssApplier.cs" />
+    <Compile Include="OpenXmlPowerTools\HtmlToWmlCssParser.cs" />
+    <Compile Include="OpenXmlPowerTools\ListItemRetriever.cs" />
+    <Compile Include="OpenXmlPowerTools\MarkupSimplifier.cs" />
+    <Compile Include="OpenXmlPowerTools\MetricsGetter.cs" />
+    <Compile Include="OpenXmlPowerTools\OpenXmlRegex.cs" />
+    <Compile Include="OpenXmlPowerTools\OxPtHelpers.cs" />
+    <Compile Include="OpenXmlPowerTools\PegBase.cs" />
+    <Compile Include="OpenXmlPowerTools\PowerToolsBlock.cs" />
+    <Compile Include="OpenXmlPowerTools\PowerToolsBlockExtensions.cs" />
+    <Compile Include="OpenXmlPowerTools\PresentationBuilder.cs" />
+    <Compile Include="OpenXmlPowerTools\Previous\WmlComparer.cs" />
+    <Compile Include="OpenXmlPowerTools\Properties\AssemblyInfo.cs" />
+    <Compile Include="OpenXmlPowerTools\PtOpenXmlDocument.cs" />
+    <Compile Include="OpenXmlPowerTools\PtOpenXmlUtil.cs" />
+    <Compile Include="OpenXmlPowerTools\PtUtil.cs" />
+    <Compile Include="OpenXmlPowerTools\ReferenceAdder.cs" />
+    <Compile Include="OpenXmlPowerTools\RevisionAccepter.cs" />
+    <Compile Include="OpenXmlPowerTools\RevisionProcessor.cs" />
+    <Compile Include="OpenXmlPowerTools\ScalarTypes.cs" />
+    <Compile Include="OpenXmlPowerTools\SmlCellFormatter.cs" />
+    <Compile Include="OpenXmlPowerTools\SmlDataRetriever.cs" />
+    <Compile Include="OpenXmlPowerTools\SmlToHtmlConverter.cs" />
+    <Compile Include="OpenXmlPowerTools\SpreadsheetDocumentManager.cs" />
+    <Compile Include="OpenXmlPowerTools\SpreadsheetWriter.cs" />
+    <Compile Include="OpenXmlPowerTools\SSFormula.cs" />
+    <Compile Include="OpenXmlPowerTools\StronglyTypedBlock.cs" />
+    <Compile Include="OpenXmlPowerTools\TestUtil.cs" />
+    <Compile Include="OpenXmlPowerTools\TextReplacer.cs" />
+    <Compile Include="OpenXmlPowerTools\UnicodeMapper.cs" />
+    <Compile Include="OpenXmlPowerTools\WmlDocument.cs" />
+    <Compile Include="OpenXmlPowerTools\WmlToHtmlConverter.cs" />
+    <Compile Include="OpenXmlPowerTools\WmlToXml.cs" />
+    <Compile Include="OpenXmlPowerTools\WorksheetAccessor.cs" />
+    <Compile Include="OpenXmlPowerTools\XlsxTables.cs" />
+    <Compile Include="Placeholders.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportGenerator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
