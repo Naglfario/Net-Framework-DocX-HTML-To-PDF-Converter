@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>DocXToPdfConverter48</id>
+    <version>1.0.0</version>
+    <title>DocXToPdfConverter</title>
+    <authors>Naglfar</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <!-- <icon>icon.png</icon> -->
+    <projectUrl>https://github.com/Naglfario/Net-Framework-DocX-HTML-To-PDF-Converter</projectUrl>
+    <description>Create custom reports based on Word docx or HTML documents and convert to PDF with .NET FRAMEWORK</description>
+    <releaseNotes>Init</releaseNotes>
+    <copyright>Copyright 2023</copyright>
+    <tags>word, doc, pdf</tags>
+  </metadata>
+  <files>
+    <file src="..\README.md" target="docs\" />
+  </files>
+</package>
